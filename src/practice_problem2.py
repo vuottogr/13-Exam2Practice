@@ -3,8 +3,8 @@ PRACTICE Exam 2, practice_problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Elle Vuotto.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -33,7 +33,7 @@ import time
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem2a()
-    run_test_practice_problem2b()
+    # run_test_practice_problem2b()
 
 
 ###############################################################################
@@ -59,6 +59,33 @@ def run_test_practice_problem2a():
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
 
+    # Test 1:
+    expected = [5, 6, 7, 8, 9, 10, 11, 12, 13]
+    sequence1 = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    actual = practice_problem2a(sequence1, 5)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = [100, 200, 300, 400]
+    sequence2 = [0, 100, 200, 300]
+    actual = practice_problem2a(sequence2, 100)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3:
+    expected = [20, 25, 30, 40]
+    sequence3 = [16, 21, 26, 36]
+    actual = practice_problem2a(sequence3, 4)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 4:
+    expected = [1, 2, 3, 4]
+    sequence4 = [0, 1, 2, 3]
+    actual = practice_problem2a(sequence4, 1)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def practice_problem2a(sequence, delta):
     """
@@ -86,6 +113,11 @@ def practice_problem2a(sequence, delta):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ###########################################################################
+
+    seq = []
+    for k in range(len(sequence)):
+        seq = seq + (sequence[k] + delta)
+    return seq
 
 
 def run_test_practice_problem2b():
