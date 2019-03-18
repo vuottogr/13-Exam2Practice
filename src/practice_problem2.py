@@ -33,7 +33,7 @@ import time
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem2a()
-    # run_test_practice_problem2b()
+    run_test_practice_problem2b()
 
 
 ###############################################################################
@@ -44,7 +44,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4    ** tests that, taken together,
     #   would form a    ** REASONABLY GOOD test set **
@@ -106,7 +106,7 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #     WRITE THE TESTS FIRST (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -116,7 +116,8 @@ def practice_problem2a(sequence, delta):
 
     seq = []
     for k in range(len(sequence)):
-        seq = seq + (sequence[k] + delta)
+        m = sequence[k] + delta
+        seq = seq + [m]
     return seq
 
 
@@ -219,7 +220,7 @@ def practice_problem2b(sequence):
       :type sequence: [str]
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -227,6 +228,12 @@ def practice_problem2b(sequence):
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
 
+    seq = ''
+    for k in range(len(sequence)):
+        news = sequence[k]
+        if news != '':
+            seq = seq + news[0]
+    return seq
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
