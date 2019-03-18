@@ -41,13 +41,13 @@ def main():
     ###########################################################################
 
     run_test_init()
-    run_test_append_string()
-    run_test_double()
-    # run_test_shrink()
+    # run_test_append_string()
+    # run_test_double()
+    run_test_shrink()
     # run_test_double_then_shrink()
-    run_test_reset()
-    run_test_steal()
-    run_test_get_history()
+    # run_test_reset()
+    # run_test_steal()
+    # run_test_get_history()
     # run_test_combined_box()
 
 
@@ -173,12 +173,13 @@ class Box(object):
         add = ''
         for k in range(numb):
             add = add + additional_contents[k]
-        self.contents = self.contents + add
+        self.contents = self.contents - add
+        return self.contents
 
         ret = ''
         for k in range(numb, len(additional_contents)):
             ret = ret + additional_contents[k]
-        return ret
+
 
 
 
@@ -270,7 +271,7 @@ class Box(object):
           :type new_volume: int
         """
         # ---------------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # done: 5. Implement and test this function.
         #     The testing code is already written for you (above).
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -281,6 +282,21 @@ class Box(object):
         # IMPORTANT: Write a solution to this problem in pseudo-code,
         # and THEN translate the pseudo-code to a solution.
         # ---------------------------------------------------------------------
+
+        self.volume = new_volume
+
+        add = ''
+        sub = ''
+        if new_volume < len(self.contents):
+            for k in range(new_volume, len(self.contents)):
+                sub = sub + self.contents[k]
+            for k in range(new_volume):
+                add = add + self.contents[k]
+            self.contents = add
+        return sub
+
+
+
 
 
 
