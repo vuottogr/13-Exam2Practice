@@ -41,14 +41,14 @@ def main():
     ###########################################################################
 
     run_test_init()
-    # run_test_append_string()
-    # run_test_double()
+    run_test_append_string()
+    run_test_double()
     run_test_shrink()
-    # run_test_double_then_shrink()
-    # run_test_reset()
-    # run_test_steal()
-    # run_test_get_history()
-    # run_test_combined_box()
+    run_test_double_then_shrink()
+    run_test_reset()
+    run_test_steal()
+    run_test_get_history()
+    run_test_combined_box()
 
 
 ###############################################################################
@@ -173,13 +173,12 @@ class Box(object):
         add = ''
         for k in range(numb):
             add = add + additional_contents[k]
-        self.contents = self.contents - add
-        return self.contents
+        self.contents = self.contents + add
 
         ret = ''
         for k in range(numb, len(additional_contents)):
             ret = ret + additional_contents[k]
-
+        return ret
 
 
 
@@ -355,6 +354,14 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # ---------------------------------------------------------------------
 
+        double = self.double()
+        shrink = self.shrink(new_volume)
+        return len(double) + len(shrink)
+
+
+
+
+
     def reset(self):
         """
         What comes in:
@@ -374,7 +381,7 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # ---------------------------------------------------------------------
 
-        self.history = str(self.contents) + str(self.history)
+        self.history = self.history + [self.contents]
         self.volume = self.volume1
         self.contents = self.contents1
 
@@ -456,7 +463,7 @@ class Box(object):
           #   h is now ['GoodGo', 'GoodBye']
         """
         # ---------------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # done: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -485,7 +492,7 @@ class Box(object):
           :type other_box: Box
         """
         # ---------------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # done: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -494,6 +501,8 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # ---------------------------------------------------------------------
 
+        new = Box(self.contents + other_box.contents, self.volume + other_box.volume)
+        return new
 
 ###############################################################################
 # The TEST functions for the  Box  class begin here.
